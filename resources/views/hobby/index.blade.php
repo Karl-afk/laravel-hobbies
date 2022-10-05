@@ -24,7 +24,12 @@
                                 </td>
                                 <td>
                                     <a href="/hobby/{{ $hobby->id }}" class="btn btn-primary btn-sm me-3">Details anzeigen</a>
-                                    <a href="/hobby/{{ $hobby->id }}/edit" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen"></i> Bearbeiten</a>
+                                    <a href="/hobby/{{ $hobby->id }}/edit" class="btn btn-warning btn-sm me-2"><i class="fa-solid fa-pen"></i> Bearbeiten</a>
+                                    <form action="/hobby/{{ $hobby->id }}" method="POST" class="d-inline">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-delete-left"></i> Löschen</a>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

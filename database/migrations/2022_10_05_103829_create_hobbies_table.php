@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('hobbies', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary()->unique();
+            $table->string('name');
+            $table->text('beschreibung');
             $table->timestamps();
         });
     }

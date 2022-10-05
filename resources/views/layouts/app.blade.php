@@ -92,6 +92,15 @@
                 </div>
             </div>
             @endif
+            @isset ($success)
+            <div class="container">
+                <div class="alert alert-success">
+                    <ul class="list-group list-group-flush">
+                            <li class="list-group-item list-group-item-success">{!!$success!!}</li>
+                    </ul>
+                </div>
+            </div>
+            @endisset
             @yield('content')
         </main>
     </div>

@@ -49,7 +49,8 @@ class HobbyController extends Controller
             'beschreibung' => $request->beschreibung
         ]);
         $hobby->save();
-        return redirect()->route('hobby.index');
+        // return redirect()->route('hobby.index')->with('success', $hobby);
+        return $this->index()->with(['success' => 'Hobby <b>' . $hobby->name . '</b> erfolgreich angelegt']);
     }
 
     /**

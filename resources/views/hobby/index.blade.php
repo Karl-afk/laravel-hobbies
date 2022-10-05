@@ -22,6 +22,9 @@
                                 <td>
                                    {{ $hobby->name}}
                                 </td>
+                                <td>
+                                    <a href="/hobby/{{ $hobby->id }}" class="btn btn-primary btn-sm">Details anzeigen</a>
+                                </td>
                             </tr>
                             @endforeach
 

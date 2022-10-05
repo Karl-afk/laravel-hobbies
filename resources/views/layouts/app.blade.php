@@ -34,6 +34,9 @@
                             <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">{{ __('Startseite') }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link {{ Request::is('hobby*') ? 'active' : '' }}" href="{{ route('hobby.index') }}">{{ __('Hobbies') }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link {{ Request::is('info') ? 'active' : '' }}" href="{{ url('/info') }}">{{ __('Infos') }}</a>
                         </li>
                     </ul>

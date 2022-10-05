@@ -23,7 +23,8 @@
                                    {{ $hobby->name}}
                                 </td>
                                 <td>
-                                    <a href="/hobby/{{ $hobby->id }}" class="btn btn-primary btn-sm">Details anzeigen</a>
+                                    <a href="/hobby/{{ $hobby->id }}" class="btn btn-primary btn-sm me-3">Details anzeigen</a>
+                                    <a href="/hobby/{{ $hobby->id }}/edit" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen"></i> Bearbeiten</a>
                                 </td>
                             </tr>
                             @endforeach

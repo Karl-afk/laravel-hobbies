@@ -81,6 +81,17 @@
         </nav>
 
         <main class="py-4">
+            @if ($errors->any())
+            <div class="container">
+                <div class="alert alert-danger">
+                    <ul class="list-group list-group-flush">
+                        @foreach ($errors->all() as $error)
+                            <li class="list-group-item list-group-item-danger">{!! $error !!}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            @endif
             @yield('content')
         </main>
     </div>

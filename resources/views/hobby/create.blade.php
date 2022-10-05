@@ -12,15 +12,6 @@
                 <div class="card-header">{{ __('Neues Hobby anlegen') }}</div>
 
                 <div class="card-body">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="list-group list-group-flush">
-                            @foreach ($errors->all() as $error)
-                                <li class="list-group-item list-group-item-danger">{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
@@ -30,11 +21,13 @@
                         @csrf
                         <div class="mb-3">
                           <label for="name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                          <input type="text" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" id="name" name="name" value="{{ old('name') }}">
+                          <small class="form-text text-danger">{!! $errors->first('name') !!}</small>
                         </div>
                         <div class="mb-3">
                           <label for="beschreibung" class="form-label">Beschreibung</label>
-                          <textarea type="text" class="form-control" id="beschreibung" rows="5" name="beschreibung" value="{{ old('beschreibung') }}"></textarea>
+                          <textarea type="text" class="form-control {{ $errors->has('beschreibung') ? 'border-danger' : '' }}" id="beschreibung" rows="5" name="beschreibung" value="{{ old('beschreibung') }}"></textarea>
+                          <small class="form-text text-danger">{!! $errors->first('beschreibung') !!}</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                       </form>

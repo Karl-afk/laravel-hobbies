@@ -17,14 +17,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <form>
+                    <form action="/hobby" method="POST">
+                        @csrf
                         <div class="mb-3">
                           <label for="name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="name">
+                          <input type="text" class="form-control" id="name" name="name">
                         </div>
                         <div class="mb-3">
                           <label for="beschreibung" class="form-label">Beschreibung</label>
-                          <textarea type="text" class="form-control" id="beschreibung" rows="5"></textarea>
+                          <textarea type="text" class="form-control" id="beschreibung" rows="5" name="beschreibung"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Speichern</button>
                       </form>

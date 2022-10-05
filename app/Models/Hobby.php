@@ -10,4 +10,6 @@ class Hobby extends Model
 {
     use HasFactory;
     use HasUuids;
+
+    protected $fillable = ['name', 'beschreibung'];
 }

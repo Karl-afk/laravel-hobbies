@@ -18,6 +18,8 @@ class HobbyFactory extends Factory
     {
         return [
             //
+            'name' => fake()->realText(30),
+            'beschreibung' => fake()->realText(),
         ];
     }
 }

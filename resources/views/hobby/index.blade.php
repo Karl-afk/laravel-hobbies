@@ -31,6 +31,9 @@
                                         <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-delete-left"></i> Löschen</a>
                                     </form>
                                 </td>
+                                <td>
+                                    {{$hobby->created_at->diffForHumans()}}
+                                </td>
                             </tr>
                             @endforeach
 

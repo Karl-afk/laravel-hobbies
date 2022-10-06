@@ -17,7 +17,7 @@
                     @endif
                        <h3> {{ $hobby->name}} </h3> 
                        <p> {{$hobby->beschreibung}} </p>
-                    <a href="{{ route('hobby.index') }}" class="btn btn-outline-success"> Zurück</a>
+                    <a href="{{ URL::previous() }}" class="btn btn-outline-success"> Zurück</a>
                 </div>
             </div>
         </div>

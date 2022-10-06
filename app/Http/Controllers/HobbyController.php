@@ -15,7 +15,8 @@ class HobbyController extends Controller
      */
     public function index()
     {
-        $hobbies = Hobby::all();
+        // $hobbies = Hobby::all();
+        $hobbies = Hobby::paginate(10);
         return view('hobby.index')->with(['hobbies' => $hobbies]);
     }
 
@@ -111,6 +112,6 @@ class HobbyController extends Controller
         //
         $oldName = $hobby->name;
         $hobby->delete();
-        return $this->index()->with(['success' => 'Hobby <b>' . $oldName . '</b> erfolgreich gelöscht.']);
+        return $this->index()->with(['success' => 'Hobby <b>' . $oldName . '</b> erfolgreich geänder.']);
     }
 }

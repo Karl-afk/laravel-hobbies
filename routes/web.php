@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HobbyController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\hobbyTagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('hobby', HobbyController::class);
 
 Route::resource('tag', TagController::class);
+Route::resource('user', UserController::class);
+
+Route::get('/hobby/tag/{tag_id}', [App\Http\Controllers\hobbyTagController::class, 'getFilteredHobbies'])->name('hobby_tag');

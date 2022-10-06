@@ -21,6 +21,17 @@ class Tag extends Model
     {
         return $this->belongsToMany(Hobby::class);
     }
+    /**
+     * Get all of the hobbies for the Tags
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function filteredHobbies(): BelongsToMany
+    {
+        return $this->belongsToMany(Hobby::class)
+            ->wherePivot('tag_id', $this->id)
+            ->orderBy('updated_at', 'DESC');
+    }
 
     protected $fillable = ['name', 'style'];
 }

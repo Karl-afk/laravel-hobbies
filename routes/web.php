@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HobbyController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('hobby', HobbyController::class);
+
+Route::resource('tag', TagController::class);

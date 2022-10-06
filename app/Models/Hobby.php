@@ -33,5 +33,5 @@ class Hobby extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-    protected $fillable = ['name', 'beschreibung'];
+    protected $fillable = ['name', 'beschreibung', 'user_id'];
 }

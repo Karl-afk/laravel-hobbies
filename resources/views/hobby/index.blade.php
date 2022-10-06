@@ -16,11 +16,26 @@
                         </div>
                     @endif
                     <table class="table table-striped table-light">
+                        <thead>
+                            <tr>
+                                <th>Hobby</th>
+                                <th>Name</th>
+                                <th>Anzahl</th>
+                                <th>Aktionen</th>
+                                <th>Erstellt</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             @foreach ($hobbies as $hobby)
                             <tr>
                                 <td>
                                    {{ $hobby->name}}
+                                </td>
+                                <td>
+                                    {{$hobby->user->name}}
+                                </td>
+                                <td>
+                                    {{$hobby->user->hobbies->count()}}
                                 </td>
                                 <td>
                                     <a href="/hobby/{{ $hobby->id }}" class="btn btn-primary btn-sm me-3">Details anzeigen</a>
@@ -39,7 +54,9 @@
 
                         </tbody>
                     </table>
+                    @auth
                     <a href="{{ route('hobby.create') }}" class="btn btn-outline-success"><i class="fa-solid fa-plus"></i> Neues Hobby anlegen</a>
+                    @endauth
                     <div class="mt-3">
                         {{ $hobbies->links() }}
                     </div>

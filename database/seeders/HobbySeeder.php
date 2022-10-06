@@ -16,9 +16,5 @@ class HobbySeeder extends Seeder
     public function run()
     {
         //
-        Hobby::factory([
-            'name' => 'testhobby',
-            'beschreibung' => 'testbeschreibung'
-        ])->create();
     }
 }

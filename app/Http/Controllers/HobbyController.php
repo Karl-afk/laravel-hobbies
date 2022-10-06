@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Hobby;
 use App\Http\Requests\StoreHobbyRequest;
 use App\Http\Requests\UpdateHobbyRequest;
+use App\Models\Tag;
+use Illuminate\Support\Facades\Session;
 
 class HobbyController extends Controller
 {
@@ -65,7 +67,18 @@ class HobbyController extends Controller
     public function show(Hobby $hobby)
     {
         //
-        return view('hobby.show')->with('hobby', $hobby);
+
+        $allTags = Tag::all();
+        $usedTags = $hobby->tags;
+        $availableTags = $allTags->diff($usedTags);
+        $success = Session::get('success');
+        return view('hobby.show')->with(
+            [
+                'hobby' => $hobby,
+                'success' => $success,
+                'verfuegbareTags' => $availableTags
+            ]
+        );
     }
 
     /**

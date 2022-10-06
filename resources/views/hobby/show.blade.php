@@ -17,9 +17,16 @@
                     @endif
 
                     <div class="mb-3">
+                        <p>Verknüpfte Tags: (klicken zum entfernen)</p>
                         @foreach ($hobby->tags as $tag)
-                                            <a href="/hobby/tag/{{ $tag->id }}" class="badge {{ $tag->style }}">{{ $tag->name }}</a>
+                                            <a href="/hobby/{{$hobby->id}}/tag/{{$tag->id}}/detach" class="me-2 badge {{ $tag->style }}">{{ $tag->name }}</a>
                                         @endforeach
+                    </div>
+                    <div class="mb-3">
+                        <p>Verfügbare Tags: (klicken zum hinzufügen)</p>
+                        @foreach ($verfuegbareTags as $tag)
+                            <a href="/hobby/{{$hobby->id}}/tag/{{$tag->id}}/attach" class="me-2 badge {{ $tag->style }}">{{ $tag->name }}</a>
+                        @endforeach
                     </div>
                        <h3> {{ $hobby->name}} </h3> 
                        <p> {{$hobby->beschreibung}} </p>

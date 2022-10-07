@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-{{ auth()->user()->name}}
-                    {{ __('You are logged in!') }}
+                    <h3>Hallo {{ auth()->user()->name}}</h3>
+                   <a href="/hobby/create" class="btn btn-success">Neues Hobby anlegen</a>
                 </div>
             </div>
         </div>

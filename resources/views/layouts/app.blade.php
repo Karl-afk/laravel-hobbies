@@ -30,9 +30,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">{{ __('Startseite') }}</a>
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('home') ? 'active' : '' }}" href="{{ url('/home') }}">{{ __('Home') }}</a>
+                            </li>
+                        @endauth
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">{{ __('Startseite') }}</a>
+                            </li>
+                        @endguest
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('hobby*') ? 'active' : '' }}" href="{{ route('hobby.index') }}">{{ __('Hobbies') }}</a>
                         </li>
@@ -100,6 +107,15 @@
                 <div class="alert alert-success">
                     <ul class="list-group list-group-flush">
                             <li class="list-group-item list-group-item-success">{!!$success!!}</li>
+                    </ul>
+                </div>
+            </div>
+            @endisset
+            @isset ($info)
+            <div class="container">
+                <div class="alert alert-warning">
+                    <ul class="list-group list-group-flush">
+                            <li class="list-group-item list-group-item-warning">{!!$info!!}</li>
                     </ul>
                 </div>
             </div>

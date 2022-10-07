@@ -55,7 +55,8 @@ class HobbyController extends Controller
         ]);
         $hobby->save();
         // return redirect()->route('hobby.index')->with('success', $hobby);
-        return $this->index()->with(['success' => 'Hobby <b>' . $hobby->name . '</b> erfolgreich angelegt']);
+        // return $this->index()->with(['success' => 'Hobby <b>' . $hobby->name . '</b> erfolgreich angelegt']);
+        return redirect('/hobby/' . $hobby->id)->with(['info' => 'Bitte weise noch Tags zu']);
     }
 
     /**
@@ -72,11 +73,13 @@ class HobbyController extends Controller
         $usedTags = $hobby->tags;
         $availableTags = $allTags->diff($usedTags);
         $success = Session::get('success');
+        $info = Session::get('info');
         return view('hobby.show')->with(
             [
                 'hobby' => $hobby,
                 'success' => $success,
-                'verfuegbareTags' => $availableTags
+                'verfuegbareTags' => $availableTags,
+                'info' => $info
             ]
         );
     }

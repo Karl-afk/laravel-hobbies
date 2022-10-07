@@ -15,13 +15,15 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <div class="mb-3">
-                        <p>Verknüpfte Tags: (klicken zum entfernen)</p>
-                        @foreach ($hobby->tags as $tag)
-                                            <a href="/hobby/{{$hobby->id}}/tag/{{$tag->id}}/detach" class="me-2 badge {{ $tag->style }}">{{ $tag->name }}</a>
-                                        @endforeach
-                    </div>
+                        @if ($hobby->tags->count() > 0)
+                        <div class="mb-3">
+                            <p>Verknüpfte Tags: (klicken zum entfernen)</p>
+                            @foreach ($hobby->tags as $tag)
+                                <a href="/hobby/{{$hobby->id}}/tag/{{$tag->id}}/detach" class="me-2 badge {{ $tag->style }}">{{ $tag->name }}</a>
+                            @endforeach
+                        </div>
+                            
+                        @endif
                     <div class="mb-3">
                         <p>Verfügbare Tags: (klicken zum hinzufügen)</p>
                         @foreach ($verfuegbareTags as $tag)
@@ -30,7 +32,7 @@
                     </div>
                        <h3> {{ $hobby->name}} </h3> 
                        <p> {{$hobby->beschreibung}} </p>
-                    <a href="{{ URL::previous() }}" class="btn btn-outline-success"> Zurück</a>
+                    <a href="{{ route('hobby.index') }}" class="btn btn-outline-success"> Zurück</a>
                 </div>
             </div>
         </div>
